@@ -6,6 +6,11 @@ body{
 
 .main{
     display: flex;
+    flex-direction: row;
+}
+
+.entry{
+    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
 }
@@ -17,7 +22,7 @@ body{
     align-items: center;
     border: 1px solid transparent;
     box-shadow: 2px 2px 8px #e5e5e5;    border-radius: 5px;
-    margin: 20px;
+    margin: 20px 20px 0px 20px;
     padding: 20px;
     width: 300px;
 }
@@ -101,6 +106,20 @@ input:focus{
     border-radius: 3px;
     margin-top: 10px;
 }
+
+#signup-notice{
+    visibility: hidden;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #688298;
+    line-height: 10px;
+    font-size: 12px;
+    margin-left: 20px;
+    padding: 10px;
+}
+
 
 /* Adds style to input placeholder */
 input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder{
