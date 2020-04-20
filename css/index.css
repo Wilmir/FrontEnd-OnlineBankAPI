@@ -35,13 +35,10 @@ body{
     align-items: center;
 }
 
-.signup{
+.signup, .login, .createAccount{
     display:block;
 }
 
-.login{
-    display:block;
-}
 
 
 .title{
@@ -50,7 +47,7 @@ body{
     font-size: 20px;
 }
 
-input[type="text"], form input[type="password"]{
+input[type="text"], input[type="password"]{
     margin: 10px;
     padding: 12px 22px;
     border: 1px solid #c4dbe7;
@@ -65,13 +62,24 @@ input[type="text"]:hover, form input[type="password"]:hover{
     transition: all .35s ease
 }
 
+.radio-btn{
+    display: flex;
+    padding: 0 30px;
+    justify-content: space-around;s
+}
+
+label {
+    font-weight: normal !important;
+}
+
+
 .submit-btn{
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-input[type="submit"] {
+input[type="submit"], .new-account-button{
     background-color: #091527;
     border: 1px solid #091527;  
     border-radius: 4px;
@@ -83,7 +91,7 @@ input[type="submit"] {
 }
 
 
-input[type="submit"]:hover{
+input[type="submit"]:hover, .new-account-button:hover{
       box-shadow: 0 1px 1px rgba(0,0,0,0.1);
       background-color: #688298;
       border: 1px solid #688298;
@@ -151,18 +159,17 @@ select:-webkit-autofill:focus {
 .customer-body{
     display: flex;
     flex-direction: row;
+    border-top:  1px solid #c4dbe7;
 }
 
 
 .accounts-section{
-    border-right: 1px solid #ddd;
     display: flex;
     flex-direction: column;
     width: 300px;
 }
 
 .transactions-section{
-    border: 1px solid #ddd;
     display: flex;
     flex-direction: column;
     width: 500px;
@@ -213,7 +220,7 @@ select:-webkit-autofill:focus {
 /*ACCOUNT CARD*/
 .account-card{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     padding: 10px;
     margin: 5px;
     border: 1px solid transparent;
@@ -221,12 +228,32 @@ select:-webkit-autofill:focus {
     border-radius: 5px;
 }
 
-.account-card-column:nth-child(1){
-    padding-right: 10px;
-    border-right: 1px solid #f5f5f5;
-    color: gray;
+
+.account-details{
+    display: flex;
+    flex-direction: row;
 }
 
 .account-card-column:nth-child(2){
     padding-left: 10px;
+    border-left: 1px solid #f5f5f5;
+}
+
+.account-card-column:nth-child(1){
+    padding-right: 10px;
+    color:#bbbbbb;
+
+}
+
+.account-card-column:last-child{
+    margin: auto;
+}
+
+.account-type{
+    font-weight: bold;
+    color: #688298
+}
+
+button:focus { 
+    outline:0 !important;
 }
