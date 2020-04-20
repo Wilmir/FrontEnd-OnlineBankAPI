@@ -12,7 +12,7 @@ signUpForm.addEventListener("submit", event => {
 
 /*Sends post request*/
 async function signUp(){
-    const url = 'http://localhost:8080/messenger/webapi/customers';
+    const url = 'http://localhost:8080/onlinebanking/webapi/customers';
 
     const name = signUpForm.querySelector("#name");
     const email = signUpForm.querySelector("#email");
@@ -40,8 +40,8 @@ async function signUp(){
 
         if(response.ok){
             const jsonResponse = await response.json();
-            console.log("The customer has successfully signed up");
             console.log(jsonResponse);
+            console.log("The customer has successfully signed up");
             confirmSuccessfulRegistration(name.value);
             clearForm(name,email,password,address);
         }else{
@@ -69,5 +69,6 @@ function confirmSuccessfulRegistration(name){
     signUpNotice.appendChild(div);
     setTimeout(function(){
         signUpNotice.style.visibility = "hidden";
+        div.innerHTML = ``;
     },5000);
 }

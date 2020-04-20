@@ -94,19 +94,6 @@ input:focus{
     outline: none;
 }
 
-
-.container{
-    width: 100px;
-    margin: 100px auto;
-}
-
-.container > div {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 3px;
-    margin-top: 10px;
-}
-
 #signup-notice{
     visibility: hidden;
     width: 300px;
@@ -149,4 +136,55 @@ select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
+}
+
+
+/*CUSTOMER WIDGET*/
+
+.customer-container{
+    margin: 20px auto;
+}
+
+.container > div {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+
+
+.customer-greeting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+.customer-table{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.customer-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.customer-column div{
+    padding: 5px;
+    text-align: center;
+    min-width: 200px;
+}
+
+.customer-column .customer-title{
+    border-bottom: 1px solid #f5f5f5;  
+    color: gray;
+}
+
+
+.customer-column .customer-body{
+    font-weight: bold;
 }

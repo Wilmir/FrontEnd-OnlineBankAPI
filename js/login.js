@@ -7,11 +7,12 @@ loginForm.addEventListener("submit", event => {
     console.log("A user has tried to login");
     logIn();
 
+
 })
 
 
 async function logIn(){
-    const url = `http://localhost:8080/messenger/webapi/customers`;
+    const url = `http://localhost:8080/onlinebanking/webapi/customers`;
     const emailParam = `?email=`;
     const passwordParam = `&password=`;
 
@@ -26,6 +27,9 @@ async function logIn(){
         if(response.ok){
             const jsonResponse = await response.json();
             console.log(jsonResponse);
+            console.log("Log In is successful");
+            renderCustomer(jsonResponse);
+
         }else{
             throw new Error("Request failed!");
 
@@ -33,14 +37,6 @@ async function logIn(){
     } catch(error){
         console.log(error);
     }
-
-
-
-
-
-
-
-
 }
 
 
