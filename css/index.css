@@ -7,6 +7,8 @@ body{
 .main{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .entry{
@@ -94,7 +96,7 @@ input:focus{
     outline: none;
 }
 
-#signup-notice{
+#signup-notice, #login-notice{
     visibility: hidden;
     width: 300px;
     display: flex;
@@ -140,18 +142,37 @@ select:-webkit-autofill:focus {
 
 
 /*CUSTOMER WIDGET*/
-
 .customer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.customer-body{
+    display: flex;
+    flex-direction: row;
+}
+
+
+.accounts-section{
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.transactions-section{
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+
+}
+
+
+.customer-details{
     margin: 20px auto;
 }
-
-.container > div {
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 3px;
-    margin-top: 10px;
-}
-
 
 .customer-greeting{
     display: flex;
@@ -165,7 +186,8 @@ select:-webkit-autofill:focus {
 .customer-table{
     display: flex;
     flex-wrap: wrap;
-
+    justify-content: center;
+    align-items: center;
 }
 
 .customer-column{
@@ -176,7 +198,6 @@ select:-webkit-autofill:focus {
 .customer-column div{
     padding: 5px;
     text-align: center;
-    min-width: 200px;
 }
 
 .customer-column .customer-title{
@@ -185,6 +206,27 @@ select:-webkit-autofill:focus {
 }
 
 
-.customer-column .customer-body{
+.customer-column .customer-data{
     font-weight: bold;
+}
+
+/*ACCOUNT CARD*/
+.account-card{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid transparent;
+    box-shadow: 2px 2px 8px #e5e5e5;    
+    border-radius: 5px;
+}
+
+.account-card-column:nth-child(1){
+    padding-right: 10px;
+    border-right: 1px solid #f5f5f5;
+    color: gray;
+}
+
+.account-card-column:nth-child(2){
+    padding-left: 10px;
 }

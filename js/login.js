@@ -1,4 +1,5 @@
 const loginForm = document.getElementById("login");
+const logInNotice = document.getElementById("login-notice")
 
 
 loginForm.addEventListener("submit", event => {
@@ -28,6 +29,8 @@ async function logIn(){
             const jsonResponse = await response.json();
             console.log(jsonResponse);
             console.log("Log In is successful");
+            confirmSuccessfulLogin(jsonResponse.name)
+            clearLoginForm(email,password);
             renderCustomer(jsonResponse);
 
         }else{
@@ -35,8 +38,25 @@ async function logIn(){
 
         }
     } catch(error){
-        console.log(error);
+        console.log("Customer not found");
     }
 }
 
 
+function clearLoginForm(email,password){
+    email.value = ``;
+    password.value = ``;
+}
+
+
+/*Temporarily display a succesful registration notice*/
+function confirmSuccessfulLogin(name){
+    const div = document.createElement('div');
+    div.innerHTML = `<div> Hi ${name}! You have successully loggedin.</div>`;
+    logInNotice.style.visibility = "visible";
+    logInNotice.appendChild(div);
+    setTimeout(function(){
+        logInNotice.style.visibility = "hidden";
+        div.innerHTML = ``;
+    },5000);
+}

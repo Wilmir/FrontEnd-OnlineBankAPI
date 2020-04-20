@@ -43,7 +43,7 @@ async function signUp(){
             console.log(jsonResponse);
             console.log("The customer has successfully signed up");
             confirmSuccessfulRegistration(name.value);
-            clearForm(name,email,password,address);
+            clearRegistrationForm(name,email,password,address);
         }else{
             throw new Error("Request failed");
         }    
@@ -54,7 +54,7 @@ async function signUp(){
 }
 
 /*Clears the form after successful registration*/
-function clearForm(name, email, password, address){
+function clearRegistrationForm(name, email, password, address){
     name.value = "";
     email.value = "";
     password.value ="";
