@@ -67,7 +67,7 @@ input[type="text"], input[type="password"]{
 input[type="text"]:hover, form input[type="password"]:hover{
     border: 1px solid transparent;
     box-shadow: 0px 0px 10px #e5e5e5;
-    transition: all .35s ease
+    transition: all .35s ease;
 }
 
 .radio-btn{
@@ -103,12 +103,12 @@ input[type="submit"], .new-account-button{
 }
 
 
-input[type="submit"]:hover, .new-account-button:hover{
+input[type="submit"]:hover, .new-account-button:hover, .transaction-buttons button:hover{
       box-shadow: 0 1px 1px rgba(0,0,0,0.1);
       background-color: #688298;
       border: 1px solid #688298;
       color: white;
-      transition: all .35s ease
+      transition: all .35s ease;
 }
 
 
@@ -163,7 +163,7 @@ select:-webkit-autofill:focus {
 }
 
 /* The Modal (background) */
-.modalSignUp{
+.modalSignUp, .lodgeModal{
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
@@ -177,7 +177,7 @@ select:-webkit-autofill:focus {
 }
 
 /* Modal Content/Box */
-.modalSignUpContent{
+.modalSignUpContent, .lodge-form{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -186,7 +186,7 @@ select:-webkit-autofill:focus {
 }
 
 /*Sign Up Widget*/
-.signup{
+.signup, .transactionModal{
     background: white;
     display: flex;
     flex-direction: column;
@@ -198,6 +198,9 @@ select:-webkit-autofill:focus {
     padding: 5px 20px 20px 20px;;
     width: 300px;
 }
+
+
+
 
 /* The Close Button */
 .closeSignUp, 
@@ -385,14 +388,26 @@ button:focus {
 
 
 /*TRANSACTIONS SECTION*/
+.account-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+
 .account-info{
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
+.transactions-counter{
+    border-top: 1px solid white;
+}
+
+
 .transactions-details{
     border: 1px solid #f5f5f5;
+    border-radius: 4px;
 }
 
 .transaction-row, .transaction-header{
@@ -411,19 +426,49 @@ button:focus {
 }
 
 .transaction-row div:first-child, 
-.transaction-header div:first-child,
+.transaction-header div:first-child{
+    width: 200px;
+}
+
+
+
 .transaction-row div:nth-child(2),
 .transaction-header div:nth-child(2){
-    width: 200px;
+    width: 250px;
+}
+
+.transaction-row:last-child{
+    border-radius: 0px 0px 4px 4px;
+
 }
 
 .transaction-header{
     background: #688298;
     color: white;
     font-size: 12px;
+    border-radius: 4px 4px 0 0;
 }
 
 .transaction-row:hover{
     background: #fffdd1;
 }
 
+/*TRANSACTION-BUTTONS*/
+.transaction-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.transaction-buttons button{
+    background-color: #091527;
+    border: 1px solid #091527;  
+    border-radius: 4px;
+    color: white;
+    margin: 11px 4px;
+    padding: 0 16px;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    align-self: center;
+}

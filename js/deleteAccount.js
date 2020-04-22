@@ -1,5 +1,7 @@
 /*Delegation function*/
-accountWidget.addEventListener("click", async function(event){
+accountWidget.addEventListener("click", manageAccount);
+
+async function manageAccount(event){
     if(event.target.className == "remove"){
         if(window.confirm("Are you sure you want to remove this account?")){
             const url = `http://localhost:8080/onlinebanking/webapi/customers`;
@@ -11,7 +13,6 @@ accountWidget.addEventListener("click", async function(event){
                     
             const accountJSON = await removeAccount(endpoint);
                      
-
             setTimeout(function(){
                 const notice = event.target.parentNode.parentNode.querySelector(".account-type");
                 notice.innerHTML = `This account has been closed`;
@@ -35,7 +36,8 @@ accountWidget.addEventListener("click", async function(event){
         renderSingleAccount(accountJSON);
 
     }
-});
+}
+
 
 async function removeAccount(endpoint){
     try{
