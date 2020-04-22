@@ -6,40 +6,48 @@ body{
 
 .main{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    background: #013C5C;
 }
 
 .entry{
     display: flex;
     flex-direction: column;
+    margin: 10%;
     flex-wrap: wrap;
+    align-self: center;
 }
 
-.widget{
+#notice{
+    visibility: hidden;
+    color: white;
+    padding:10px;
+}
+
+
+.login{
+    background: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 1px solid transparent;
-    box-shadow: 2px 2px 8px #e5e5e5;    border-radius: 5px;
-    margin: 20px 20px 0px 20px;
+    /*box-shadow: 2px 2px 8px #e5e5e5;    */
+    border-radius: 5px;
     padding: 20px;
     width: 300px;
 }
+
 
 .form{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-.signup, .login, .createAccount{
-    display:block;
-}
-
-
 
 .title{
     display: flex;
@@ -64,6 +72,7 @@ input[type="text"]:hover, form input[type="password"]:hover{
 
 .radio-btn{
     display: flex;
+    margin-top: 10px;
     padding: 0 30px;
     justify-content: space-around;s
 }
@@ -88,6 +97,9 @@ input[type="submit"], .new-account-button{
     padding: 0 16px;
     height: 36px;
     text-align: center;
+    width: 235px;
+    align-self: center;
+
 }
 
 
@@ -103,21 +115,6 @@ input[type="submit"]:hover, .new-account-button:hover{
 input:focus{
     outline: none;
 }
-
-#signup-notice, #login-notice{
-    visibility: hidden;
-    width: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #688298;
-    line-height: 10px;
-    font-size: 12px;
-    margin-left: 20px;
-    padding: 10px;
-}
-
-
 /* Adds style to input placeholder */
 input[type="text"]::-webkit-input-placeholder, input[type="password"]::-webkit-input-placeholder{
     color: #bbbbbb;
@@ -148,8 +145,87 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
 }
 
+/*SIGN UP MODAL*/
+/*The Sign Up Button*/
+.signupquestion{
+    color:#bbbbbb;
+}
+
+#signupoption{
+    color:#013C5C;
+}
+
+#signupoption:hover,
+#signupoption:focus {
+  color: #688298;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* The Modal (background) */
+.modalSignUp{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modalSignUpContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+/*Sign Up Widget*/
+.signup{
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    margin: 5px 20px 0px 20px;
+    padding: 5px 20px 20px 20px;;
+    width: 300px;
+}
+
+/* The Close Button */
+.closeSignUp, 
+.closeNewAccount {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    color: #bbbbbb;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .closeSignUp:hover,
+  .closeSignUp:focus,
+  .closeNewAccount:hover,
+  .closeNewAccount:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 1s ease;
+  }
+
 
 /*CUSTOMER WIDGET*/
+.container{
+    display: none;
+}
+
 .customer-container{
     display: flex;
     flex-direction: column;
@@ -159,9 +235,7 @@ select:-webkit-autofill:focus {
 .customer-body{
     display: flex;
     flex-direction: row;
-    border-top:  1px solid #c4dbe7;
 }
-
 
 .accounts-section{
     display: flex;
@@ -172,10 +246,8 @@ select:-webkit-autofill:focus {
 .transactions-section{
     display: flex;
     flex-direction: column;
-    width: 500px;
 
 }
-
 
 .customer-details{
     margin: 20px auto;
@@ -186,7 +258,6 @@ select:-webkit-autofill:focus {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    margin-bottom: 20px;
 }
 
 
@@ -194,7 +265,6 @@ select:-webkit-autofill:focus {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
 }
 
 .customer-column{
@@ -202,20 +272,26 @@ select:-webkit-autofill:focus {
     flex-direction: column;
 }
 
-.customer-column div{
-    padding: 5px;
-    text-align: center;
-}
 
-.customer-column .customer-title{
-    border-bottom: 1px solid #f5f5f5;  
+.customer-title{
     color: gray;
+    padding-right: 10px;
+    border-right: 1px solid #f5f5f5;
 }
 
 
-.customer-column .customer-data{
+.customer-data{
     font-weight: bold;
+    padding-left: 10px;
 }
+
+.customer-data:nth-child(3){
+    color:#688298;
+}
+
+
+
+
 
 /*ACCOUNT CARD*/
 .account-card{
@@ -228,6 +304,10 @@ select:-webkit-autofill:focus {
     border-radius: 5px;
 }
 
+.account-card:hover{
+    box-shadow: 2px 2px 8px #c4dbe7;    
+    transition: all 0.8 ease;
+}
 
 .account-details{
     display: flex;
@@ -251,7 +331,35 @@ select:-webkit-autofill:focus {
 
 .account-type{
     font-weight: bold;
-    color: #688298
+    color: #013C5C
+}
+
+
+.account-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    border-top: 1px solid #f5f5f5;
+    border-bottom: 1px solid #f5f5f5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.view, .remove{
+    border-radius: 4px;
+    color: #999999;
+    text-align: center;
+    width: 150px;
+    border: 1px solid white;  
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+}
+
+.view:hover, .remove:hover {
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;  
 }
 
 button:focus { 

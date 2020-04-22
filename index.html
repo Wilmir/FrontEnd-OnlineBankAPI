@@ -10,8 +10,53 @@
 </head>
     <body>
         <div class = "main">
+            <div id = "notice">This is a notice</div>
             <div class = "entry">
+                <div class = "widget login">            
+                    <div class = "form" id = "login">
+                        <div class = "title">Login</div>
+                        <form>
+                            <input type = "text" name="email" id="email" placeholder = "Email Address" required><br>
+                            
+                            <input type = "password" name="password" id="password" placeholder = "Password" required><br>
+                            
+                            <div class = "submit-btn">
+                                <input type="submit" id = "submit" value="Log In">
+                            </div>                    
+                        </form>
+                        <div class = "signupquestion">Not Registered? <span id = "signupoption">Sign Up</span></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class = "container">
+                <div class = "customer-container">
+                    <div class = "customer-greeting title"></div>
+                    <div class = "customer-body">
+                        <div class = "customer-info">
+                            <div class = "customer-header">
+
+                            </div>
+                            <div class = "new-account-form account-card">
+                                <button class = "new-account-button">Open A New Account</button>
+                            </div>
+                            <div class = "accounts-section">
+
+                            </div>
+
+                        </div>
+                        <div class = "transactions-section">
+                                
+                        </div>
+                    </div>
+                </div>  
+            </div>
+        </div>    
+
+        <div class = "modalSignUp">
+            <div class = "modalSignUpContent">
                 <div class = "widget signup">
+                    <span class="closeSignUp">&times;</span>
                     <div class = "form">
                         <div class = "title">Sign Up</div>
                         <form method="POST" id = "signup">
@@ -28,48 +73,16 @@
                         </form>
                     </div>
                 </div>
-                <div id = "signup-notice"></div>
-
-
-
-                <div class = "widget login">            
-                    <div class = "form" id = "login">
-                        <div class = "title">Login</div>
-                        <form>
-                            <input type = "text" name="email" id="email" placeholder = "Email Address" required><br>
-                            
-                            <input type = "password" name="password" id="password" placeholder = "Password" required><br>
-                            
-                            <div class = "submit-btn">
-                                <input type="submit" id = "submit" value="Log In">
-                            </div>                    </form>
-                    </div>
-                </div>
-                <div id = "login-notice"></div>
             </div>
-            
-            <div class = "customer-container">
-                <div class = "customer-header">
+        </div>
 
-                </div>
-                <div class = "customer-body">
-                    <div class = "accounts-section">
-
-                    </div>
-                    <div class = "transactions-section">
-                        <div class = "title">Transactions</div>
-                        <div class = "transactions-container">
-
-                        </div>
-                    </div>
-                </div>
-            </div>  
-        </div>    
         <script src = "./js/register.js"></script>
+        <script src = "./js/signUpModal.js"></script>
         <script src = "./js/login.js"></script>
         <script src = "./js/loadCustomer.js"></script>
+        <script src = "./js/loadAccounts.js"></script>
         <script src = "./js/addAccount.js"></script>
-
+        <script src = "./js/deleteAccount.js"></script>
 
     </body>
 </html>

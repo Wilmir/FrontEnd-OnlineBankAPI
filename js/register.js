@@ -1,13 +1,11 @@
 const signUpForm = document.getElementById("signup");
-const signUpNotice = document.getElementById("signup-notice");
+const notice = document.getElementById("notice");
 
 signUpForm.addEventListener("submit", event => {
     event.preventDefault();
     console.log("New customer tried to sign up");
     
     signUp();
-
-
 })
 
 /*Sends post request*/
@@ -65,10 +63,11 @@ function clearRegistrationForm(name, email, password, address){
 function confirmSuccessfulRegistration(name){
     const div = document.createElement('div');
     div.innerHTML = `<div> Hi ${name}! Your profile has successfully been created.</div>`;
-    signUpNotice.style.visibility = "visible";
-    signUpNotice.appendChild(div);
+    notice.innerHTML = ``;
+    notice.style.visibility = "visible";
+    signupModal.style.display = "none";
+    notice.appendChild(div);
     setTimeout(function(){
-        signUpNotice.style.visibility = "hidden";
-        div.innerHTML = ``;
+        notice.style.visibility = "hidden";
     },5000);
 }

@@ -1,18 +1,14 @@
 const loginForm = document.getElementById("login");
-const logInNotice = document.getElementById("login-notice")
-
+const entryPoint = document.querySelector(".entry");
 
 loginForm.addEventListener("submit", event => {
     event.preventDefault();
 
     console.log("A user has tried to login");
-    logIn();
-
-
+    getCustomer();
 })
 
-
-async function logIn(){
+async function getCustomer(){
     const url = `http://localhost:8080/onlinebanking/webapi/customers`;
     const emailParam = `?email=`;
     const passwordParam = `&password=`;
@@ -26,12 +22,22 @@ async function logIn(){
         const response = await fetch(endpoint);
 
         if(response.ok){
-            const jsonResponse = await response.json();
-            console.log(jsonResponse);
-            console.log("Log In is successful");
-            confirmSuccessfulLogin(jsonResponse.name)
+            console.log("Starting to retrieve customer.");
+            const customerJSON = await response.json();
+            console.log("Retrieval of customer successful");
+            console.log(customerJSON);
+            /*Hide login form*/
             clearLoginForm(email,password);
-            renderCustomer(jsonResponse);
+            entryPoint.style.display = "none";
+            renderCustomer(customerJSON);
+            
+            /*Retrieve and render accounts*/
+            const accountsEndpoint = customerJSON.links[1].link;
+            
+            const accountsJSON = await getAccounts(accountsEndpoint);
+            console.log(accountsJSON);
+            console.log("Login is successful");
+
 
         }else{
             throw new Error("Request failed!");
@@ -43,20 +49,28 @@ async function logIn(){
 }
 
 
+async function getAccounts(endpoint){
+    const url = endpoint;
+    try{
+        const response = await fetch(url);
+        if(response.ok){
+            console.log("Starting to retrieve accounts.");
+            const accountsJSON = await response.json()
+            console.log("Retrieval of accounts successful");
+            renderAccounts(accountsJSON);
+            console.log("Rendering of accounts successful");
+            return accountsJSON;
+        }else{
+            throw new Error("Request failed!");
+
+        }
+    }catch(error){
+        console.log("Accounts retrieval failed");
+    }
+}
+
 function clearLoginForm(email,password){
     email.value = ``;
     password.value = ``;
 }
 
-
-/*Temporarily display a succesful registration notice*/
-function confirmSuccessfulLogin(name){
-    const div = document.createElement('div');
-    div.innerHTML = `<div> Hi ${name}! You have successully loggedin.</div>`;
-    logInNotice.style.visibility = "visible";
-    logInNotice.appendChild(div);
-    setTimeout(function(){
-        logInNotice.style.visibility = "hidden";
-        div.innerHTML = ``;
-    },5000);
-}
