@@ -32,7 +32,7 @@ accountWidget.addEventListener("click", async function(event){
 
         const accountJSON = await getAccount(endpoint);
 
-        console.log(`Trying to render account ${accountJSON.accountNumber} to transactions section`);
+        renderSingleAccount(accountJSON);
 
     }
 });

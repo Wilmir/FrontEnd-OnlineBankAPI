@@ -232,6 +232,20 @@ select:-webkit-autofill:focus {
     align-items: center;
 }
 
+.customer-greeting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.customer-info{
+    border: 1px solid #f5f5f5;
+    padding: 10px;
+    min-height: 90vh;
+    transition: margin 3s 3s;
+}
+
 .customer-body{
     display: flex;
     flex-direction: row;
@@ -243,22 +257,12 @@ select:-webkit-autofill:focus {
     width: 300px;
 }
 
-.transactions-section{
-    display: flex;
-    flex-direction: column;
 
-}
 
 .customer-details{
     margin: 20px auto;
 }
 
-.customer-greeting{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-}
 
 
 .customer-table{
@@ -289,13 +293,9 @@ select:-webkit-autofill:focus {
     color:#688298;
 }
 
+/*ACCOUNTS SECTION*/
 
-
-
-
-/*ACCOUNT CARD*/
-
-.accounts-counter{
+.accounts-counter, .transactions-counter{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -382,3 +382,48 @@ select:-webkit-autofill:focus {
 button:focus { 
     outline:0 !important;
 }
+
+
+/*TRANSACTIONS SECTION*/
+.account-info{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.transactions-details{
+    border: 1px solid #f5f5f5;
+}
+
+.transaction-row, .transaction-header{
+    display: flex;
+    font-size: 11px;
+    padding:10px;
+    flex-wrap: nowrap;
+}
+
+.transaction-row:nth-child(even) {
+    background: #f5f5f5;
+}
+
+.transaction-row div, .transaction-header div{
+    width: 100px;
+}
+
+.transaction-row div:first-child, 
+.transaction-header div:first-child,
+.transaction-row div:nth-child(2),
+.transaction-header div:nth-child(2){
+    width: 200px;
+}
+
+.transaction-header{
+    background: #688298;
+    color: white;
+    font-size: 12px;
+}
+
+.transaction-row:hover{
+    background: #fffdd1;
+}
+
