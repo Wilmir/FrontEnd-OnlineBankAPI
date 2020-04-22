@@ -81,7 +81,7 @@ async function addAccount(customerID, data){
             console.log("New account has been added.")
             console.log(jsonResponse);
             getAccounts(`${jsonResponse.links[1].link}/accounts`);
-            setTimeout(highlightNewAccount, 100);
+            /*setTimeout(highlightNewAccount, 100);*/
 
         }else{
             throw new Error("Request failed");
@@ -94,7 +94,7 @@ async function addAccount(customerID, data){
 }
 
 
-const highlightNewAccount = function(){
+function highlightNewAccount(){
     document.querySelector(".account-card:last-child").style.boxShadow = "2px 2px 12px #c4dbe7";
     setTimeout(function(){
         document.querySelector(".account-card:last-child").style.boxShadow = "2px 2px 8px #e5e5e5";
