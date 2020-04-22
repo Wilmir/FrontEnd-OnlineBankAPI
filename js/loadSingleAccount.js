@@ -2,19 +2,18 @@ const accountHeader = document.querySelector(".transactions-header");
 const transactionsCounter = document.querySelector(".transactions-counter");
 const transactionsDetails = document.querySelector(".transactions-details");
 
-
 async function renderSingleAccount(accountJSON){
-
     /*Add Transaction Buttons*/
     const transactionButtons = `<div class = "transaction-buttons">
-                                <button class = "lodge">Lodge</button>
-                                <button class = "withdraw">Withdraw</button>
+                                <button class = "lodgement">Lodge</button>
+                                <button class = "withdrawal">Withdraw</button>
                                 <button class = "transfer">Transfer</button>
                             </div>`;
 
     const div = document.createElement('div');
     div.innerHTML = transactionButtons;
 
+    accountHeader.innerHTML = ``;
     accountHeader.appendChild(div);
 
     /*Render Transactions*/
@@ -26,74 +25,20 @@ async function renderSingleAccount(accountJSON){
 
     renderTransactions(transactionsJSON);
 
+    const transactionButtonEvent = document.querySelector(".transaction-buttons");
 
-    /*Display Modal When One of the Buttons is Clicked*/
-    const lodgeBtn = document.querySelector(".lodge");
-    lodgeBtn.addEventListener("click", displayLodgeModal);
+    transactionButtonEvent.addEventListener("click", displayModal);
 
-
-    function displayLodgeModal(){
-        const container = document.createElement('div');
-        container.setAttribute("class","lodgeModal");
-        container.innerHTML = lodgementForm;
-        document.body.appendChild(container);
-
-        document.querySelector(".lodgeModal").style.display = "block";
-
-        container.addEventListener("click", removeLodgeModal);
-    }
-
-
-    function removeLodgeModal(event){
-        const lodgeModal = document.querySelector(".lodgeModal");
-        if(event.target === lodgeModal){
-            lodgeModal.remove();
+    /*Display Modals to Perform New Transaction*/
+    async function displayModal(event){
+        if(event.target != event.currentTarget){
+            displayTransactionModal(event.target.className, accountJSON)
         }
     }
 
-
-
 }
 
-
-
-const lodgementForm = `<div class = "lodge-form">
-                        <div class = "transactionModal">
-                        <form method="POST" id = "lodge">
-                        <input type = text name="amount" id="lodge-amount" placeholder="Amount" required><br>
-                        <div class = "submit-btn">
-                            <input type="submit" id = "submit" value="Lodge">
-                         </div>
-                        </form>
-                        </div>
-                        </div>`;
-
-const withdrawalForm = `<div class = "withdrawal-form">
-                        <div class = "transactionModal">
-                        <form method="POST" id = "withdraw">
-                        <input type = text name="name" id="withdraw-amount" placeholder="Amount" required><br>
-                        <div class = "submit-btn">
-                            <input type="submit" id = "submit" value="Withdraw">
-                        </div>
-                        </form>
-                        </div>
-                        </div>`;
-
-const transferForm = `<div class = "withdrawal-form">
-                        <div class = "transactionModal">
-                        <form method="POST" id = "withdraw">
-                        <input type = text name="recipient" id="recipient" placeholder="Recipient Account Number" required><br>
-                        <input type = text name="name" id="withdraw-amount" placeholder="Enter Amount" required><br>
-                        <div class = "submit-btn">
-                            <input type="submit" id = "submit" value="Withdraw">
-                        </div>
-                        </form>
-                        </div>
-                        </div>`;
-
-
-
-
+/*Display All Transactions of An Account*/
 function renderTransactions(transactionsJSON){
     const transactions = transactionsJSON;
 
@@ -111,8 +56,6 @@ function renderTransactions(transactionsJSON){
     let transaction;
     for(i = transactions.length-1; i>=0; i--){
         transaction = transactions[i];
-        console.log(transactions[i]);
-
         const divData = document.createElement('div');
         divData.setAttribute("class","transaction-row");
         divData.innerHTML = `<div class = "transaction-date">${transaction.createdDate.toLocaleString()}</div>
@@ -126,6 +69,8 @@ function renderTransactions(transactionsJSON){
     }   
 }
 
+
+/*GET All Transactions of An Account*/
 async function getTransactions(endpoint){
     try{
     const response = await fetch(endpoint);
