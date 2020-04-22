@@ -1,9 +1,9 @@
 const accountWidget = document.querySelector(".accounts-section")
-
+const accountCounter = document.querySelector(".accounts-counter");
 //Renders all the accounts of the customer
 function renderAccounts(accountsJSON){
     accountWidget.innerHTML = ``;
-
+    accountCounter.innerHTML = `You have ${accountsJSON.length} account${accountsJSON.length > 1? "s." : "."}`;
     accountsJSON.forEach(account => 
         {
             const div = document.createElement('div');
