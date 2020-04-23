@@ -62,7 +62,7 @@ function renderTransactions(transactionsJSON){
                         <div class = "transaction-description">${transaction.description}</div> 
                         <div class = "transaction-debit">${transaction.debit ? transaction.transactionAmount.toFixed(2) : ""}</div> 
                         <div class = "transaction-credit">${transaction.credit ? transaction.transactionAmount.toFixed(2) : ""}</div> 
-                        <div class = "transaction-balance">Balance</div>`;
+                        <div class = "transaction-balance">${transaction.postTransactionBalance.toFixed(2)}</div>`;
     
         transactionsDetails.appendChild(divData);
 
