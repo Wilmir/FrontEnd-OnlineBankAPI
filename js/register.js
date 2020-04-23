@@ -71,3 +71,4 @@ function confirmSuccessfulRegistration(name){
         notice.style.visibility = "hidden";
     },5000);
 }
+

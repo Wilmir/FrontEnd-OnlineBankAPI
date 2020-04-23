@@ -4,6 +4,31 @@ body{
     padding: 0;
 }
 
+header ul {
+    list-style-type: none;
+    padding: 10px;
+    background: #013C5C;
+    display: flex;
+    flex-direction: row;    
+    justify-content: flex-start;
+    border: none;
+    margin: 0px;
+}
+
+li, li a{ 
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+
+li a:hover{
+    color: #f5f5f5;
+    text-decoration: none;
+}
+
+
 .main{
     display: flex;
     flex-direction: column;
@@ -173,7 +198,7 @@ select:-webkit-autofill:focus {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.3); /* Black w/ opacity */
+    background-color: rgba(0, 0, 0, 0.229); /* Black w/ opacity */
 }
 
 /* The Modal (background) */
@@ -187,7 +212,7 @@ select:-webkit-autofill:focus {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+    background-color: rgba(255, 255, 255, 0.55); /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
@@ -213,7 +238,9 @@ select:-webkit-autofill:focus {
     width: 300px;
 }
 
-
+.transactionModal{
+    box-shadow: 1px 1px 8px #bbbbbb;    
+}
 
 
 /* The Close Button */
@@ -249,21 +276,36 @@ select:-webkit-autofill:focus {
 .customer-container{
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-.customer-greeting{
+.customer-name-bar{
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     padding: 10px;
+    color: white;
+    background: #013C5C;
 }
+
+.customer-name-bar div{
+    margin-right: 10px;
+}
+
+.customer-name-bar a{
+    color:#c4dbe7;
+}
+
+
+.customer-name-bar a:hover{
+    color:white;
+}
+
+
 
 .customer-info{
     border: 1px solid transparent;
     padding: 10px;
-    min-height: 90vh;
-    transition: margin 3s 3s;
+    min-height: 100vh;
     background: #f2f8ff;
     border-radius: 4px;
 }
@@ -271,6 +313,11 @@ select:-webkit-autofill:focus {
 .customer-body{
     display: flex;
     flex-direction: row;
+    justify-content: center;
+}
+
+.customer-details{
+    margin: 20px auto;
 }
 
 .accounts-section{
@@ -279,43 +326,44 @@ select:-webkit-autofill:focus {
     width: 300px;
 }
 
-.customer-details{
-    margin: 20px auto;
-}
-
-
 
 .customer-table{
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 10px 10px 10px 10px;
+    border-bottom: 1px solid #bbbbbb;
 }
 
-.customer-column{
+.customer-row{
     display: flex;
     flex-direction: column;
+    margin-bottom: 8px;
+}
+
+.customer-inner-row{
+    display: flex;
+}
+
+.customer-inner-row div{
+    margin-right: 20px;
 }
 
 
 .customer-title{
-    color: gray;
-    padding-right: 10px;
-    border-right: 1px solid #f5f5f5;
+    color: #688298;
+    font-size: 12px;
 }
 
 
 .customer-data{
-    font-weight: bold;
-    padding-left: 10px;
-}
-
-.customer-data:nth-child(3){
-    color:#688298;
+    color:#091527;
 }
 
 /*ACCOUNTS SECTION*/
 
-.accounts-counter, .transactions-counter{
+.accounts-counter, .transactions-counter, .customer-profile-title{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -323,8 +371,6 @@ select:-webkit-autofill:focus {
     font-size: 16px;
     font-weight: bold;
     border-top: 1px solid #f5f5f5;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .account-card{
@@ -408,23 +454,49 @@ button:focus {
 .account-header{
     display: flex;
     justify-content: space-between;
+    padding: 20px 20 0px 20px;
 }
 
 
 .account-info{
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    width:812;
+    min-height: 100vh;
+    border-right: 1px solid #c4dbe7;
 }
+
+
+.account-information{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.account-information div{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.account-info-title{
+    display: flex;
+    flex-direction: flex-start;
+    font-size: 12px;
+    color: #688298;
+}
+
 
 .transactions-counter{
     border-top: 1px solid white;
+    padding: 15px;
 }
 
 
 .transactions-details{
-    border: 1px solid #f5f5f5;
+    border: 1px solid #f2f8ff;
     border-radius: 4px;
+    margin: 0 20px 0 20px;
 }
 
 .transaction-row, .transaction-header{
@@ -477,9 +549,10 @@ button:focus {
     justify-content: flex-start;
 }
 
-.transaction-buttons button{
-    background-color: #091527;
-    border: 1px solid #091527;  
+.transaction-buttons button{ 
+	background:linear-gradient(to bottom, #FFA500 5%, #FF8C00 100%);
+    background-color:#FFA500;
+    border: 1px solid #FFA500;
     border-radius: 4px;
     color: white;
     margin: 11px 4px;
@@ -488,4 +561,10 @@ button:focus {
     width: 100px;
     text-align: center;
     align-self: center;
+}
+
+.transaction-buttons button:hover{
+    background:linear-gradient(to bottom, #FF8C00 5%, #FFA500 100%);
+    background-color:#FF8C00;
+    border: 1px solid #FF8C00;
 }

@@ -1,5 +1,6 @@
 const loginForm = document.getElementById("login");
 const entryPoint = document.querySelector(".entry");
+const header = document.querySelector("header");
 
 loginForm.addEventListener("submit", event => {
     event.preventDefault();
@@ -7,6 +8,7 @@ loginForm.addEventListener("submit", event => {
     console.log("A user has tried to login");
     getCustomer();
 })
+
 
 async function getCustomer(){
     const url = `http://localhost:8080/onlinebanking/webapi/customers`;
@@ -29,6 +31,7 @@ async function getCustomer(){
             /*Hide login form*/
             clearLoginForm(email,password);
             entryPoint.style.display = "none";
+            header.style.display = "none";
             renderCustomer(customerJSON);
             
             /*Retrieve and render accounts*/
@@ -45,6 +48,7 @@ async function getCustomer(){
         }
     } catch(error){
         console.log("Customer not found");
+        displayAccountNotFound();
     }
 }
 
@@ -74,3 +78,15 @@ function clearLoginForm(email,password){
     password.value = ``;
 }
 
+/*Temporarily display account not found*/
+function displayAccountNotFound(){
+    const div = document.createElement('div');
+    div.innerHTML = `<div> Invalid login credentials! </div>`;
+    notice.innerHTML = ``;
+    notice.style.visibility = "visible";
+    signupModal.style.display = "none";
+    notice.appendChild(div);
+    setTimeout(function(){
+        notice.style.visibility = "hidden";
+    },5000);
+}

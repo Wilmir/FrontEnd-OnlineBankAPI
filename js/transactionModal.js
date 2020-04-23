@@ -28,7 +28,7 @@ const transactionForm = `<div class = "transaction-form">
 
     const modalForm = document.getElementById(formType);
 
-    /*Call Transaction HTTP Request*/
+    /*Prepare Transaction HTTP Request*/
     modalForm.addEventListener("submit", async event => {
         event.preventDefault();
 
@@ -47,7 +47,7 @@ const transactionForm = `<div class = "transaction-form">
         setTimeout(function(){
             console.log(`${formType} successful`);
             container.remove();
-            transactionsCounter.innerHTML =`Updating transaction details...`
+            transactionsCounter.innerHTML =`Updating transaction history...`
         },1000);
 
         setTimeout(function(){
@@ -55,9 +55,8 @@ const transactionForm = `<div class = "transaction-form">
         },3000);
 
         setTimeout(function(){
-            transactionsCounter.innerHTML = `Your ${accountJSON.currentAccount ? "Current Account's": "Savings Account's"} balance is  ${newAccountBalance.toLocaleString('en-GB', {style:'currency', currency:'EUR'})}`;
+            transactionsCounter.innerHTML = `Your current balance is  ${newAccountBalance.toLocaleString('en-GB', {style:'currency', currency:'EUR'})}`;
         },4100);
-
 
     })
 
