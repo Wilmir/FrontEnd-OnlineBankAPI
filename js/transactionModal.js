@@ -42,7 +42,7 @@ const transactionForm = `<div class = "transaction-form">
             endpoint = `${endpoint}&recipient=${recipientAccount.value}`;
         }
 
-        const newAccountBalance = await performTransaction(endpoint);
+        const newTransaction = await performTransaction(endpoint);
 
         setTimeout(function(){
             console.log(`${formType} successful`);
@@ -53,10 +53,6 @@ const transactionForm = `<div class = "transaction-form">
         setTimeout(function(){
             renderSingleAccount(accountJSON);
         },3000);
-
-        setTimeout(function(){
-            transactionsCounter.innerHTML = `Your current balance is  ${newAccountBalance.toLocaleString('en-GB', {style:'currency', currency:'EUR'})}`;
-        },4100);
 
     })
 
@@ -84,7 +80,7 @@ async function performTransaction(endpoint){
 
         if(response.ok){
             const jsonResponse = await response.json();
-            console.log(`New Balance Received is ${jsonResponse}`);
+            console.log(`${jsonResponse}`);
             return jsonResponse;
         }
     }catch(error){

@@ -37,8 +37,6 @@ async function renderSingleAccount(accountJSON){
                                 </div>`                               
                                 ;
 
-    transactionsCounter.innerHTML = `Your current balance is  ${accountJSON.currentBalance.toLocaleString('en-GB', {style:'currency', currency:'EUR'})}`;
-
     renderTransactions(transactionsJSON);
 
     const transactionButtonEvent = document.querySelector(".transaction-buttons");
@@ -57,6 +55,11 @@ async function renderSingleAccount(accountJSON){
 /*Display All Transactions of An Account*/
 function renderTransactions(transactionsJSON){
     const transactions = transactionsJSON;
+
+    const currentBalance = transactionsJSON.slice(-1)[0].postTransactionBalance;
+    console.log(`Current Balance is : ${currentBalance}`);
+
+    transactionsCounter.innerHTML = `Your current balance is  ${currentBalance.toLocaleString('en-GB', {style:'currency', currency:'EUR'})}`;
 
     transactionsDetails.innerHTML = ``;
     const divHeader = document.createElement('div');

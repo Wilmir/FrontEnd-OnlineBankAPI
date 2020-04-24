@@ -14,7 +14,7 @@ function renderCustomer(customerJSON){
     transactionsCounter.innerHTML = `<div>Hi ${userName}! Welcome to Your Online Banking Profile.</div>`;
 
 
-    customerName.innerHTML = `<div>${userName}</div><div> | </div><div> <a href = "index.html">Sign Out</a></div>`;
+    customerName.innerHTML = `<div>ONLINE BANK ACCOUNT MANAGER</div><div class = "nav"><div>${userName}</div><div> | </div><div> <a href = "index.html">Sign Out</a></div></div>`;
     customerWidget.innerHTML = ``;
 
     const div = document.createElement('div');

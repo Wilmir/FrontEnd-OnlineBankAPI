@@ -4,10 +4,19 @@ body{
     padding: 0;
 }
 
-header ul {
+header{
+    width: 100%;
+}
+
+header nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+nav ul {
     list-style-type: none;
     padding: 10px;
-    background: #013C5C;
     display: flex;
     flex-direction: row;    
     justify-content: flex-start;
@@ -16,15 +25,15 @@ header ul {
 }
 
 li, li a{ 
-    color: white;
+    color: #013C5C;
     text-decoration: none;
     cursor: pointer;
     margin: 10px;
 }
 
 
-li a:hover{
-    color: #f5f5f5;
+li a:hover, a:visited, a:active{
+    color: #013C5C;
     text-decoration: none;
 }
 
@@ -36,26 +45,26 @@ li a:hover{
     flex-wrap: wrap;
     width: 100%;
     height: 100%;
-    background: #013C5C;
+    background: #f2f2f2;
 }
 
 .entry{
     display: flex;
     flex-direction: column;
-    margin: 10%;
     flex-wrap: wrap;
+    margin-top: 5%;
     align-self: center;
 }
 
 #notice{
     visibility: hidden;
-    color: white;
+    color: #013C5C;
     padding:10px;
 }
 
 
 .login{
-    background: white;
+    background: transparent;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -64,9 +73,8 @@ li a:hover{
     /*box-shadow: 2px 2px 8px #e5e5e5;    */
     border-radius: 5px;
     padding: 20px;
-    width: 300px;
+    width: 600px;
 }
-
 
 .form{
     display: flex;
@@ -83,15 +91,28 @@ li a:hover{
 input[type="text"], input[type="password"]{
     margin: 10px;
     padding: 12px 22px;
-    border: 1px solid #c4dbe7;
+    border: 1px solid #dfe1e5;
     border-radius: 18px;
     height: 36px;
     width: 240px;
 }
 
+.login input[type="text"], .login input[type="password"]{
+    height: 40px;
+    width: 300px;
+}
+
+
+#signup input[type="text"], #signup input[type="password"]{
+    height: 40px;
+    width: 400px;
+}
+
+
+
 input[type="text"]:hover, form input[type="password"]:hover{
     border: 1px solid transparent;
-    box-shadow: 0px 0px 10px #e5e5e5;
+    box-shadow: 0px 0px 10px #bbbbbb;
     transition: all .35s ease;
 }
 
@@ -127,6 +148,9 @@ input[type="submit"], .new-account-button{
 
 }
 
+.login input[type="submit"]{
+    width: 290px;
+}
 
 input[type="submit"]:hover, .new-account-button:hover, .transaction-buttons button:hover{
       box-shadow: 0 1px 1px rgba(0,0,0,0.1);
@@ -135,7 +159,6 @@ input[type="submit"]:hover, .new-account-button:hover, .transaction-buttons butt
       color: white;
       transition: all .35s ease;
 }
-
 
 input:focus{
     outline: none;
@@ -173,7 +196,7 @@ select:-webkit-autofill:focus {
 /*SIGN UP MODAL*/
 /*The Sign Up Button*/
 .signupquestion{
-    color:#bbbbbb;
+    color:gray;
 }
 
 #signupoption{
@@ -235,13 +258,18 @@ select:-webkit-autofill:focus {
     border-radius: 5px;
     margin: 5px 20px 0px 20px;
     padding: 5px 20px 20px 20px;;
-    width: 300px;
+}
+
+
+.signup{
+    width: 500px;
 }
 
 .transactionModal{
-    box-shadow: 1px 1px 8px #bbbbbb;    
+    box-shadow: 1px 1px 8px #bbbbbb;   
+    width: 300px;
+ 
 }
-
 
 /* The Close Button */
 .closeSignUp, 
@@ -280,16 +308,23 @@ select:-webkit-autofill:focus {
 
 .customer-name-bar{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
     padding: 10px;
     color: white;
     background: #013C5C;
 }
 
-.customer-name-bar div{
+.customer-name-bar .nav{
+    display: flex;
+}
+
+.customer-name-bar .nav div{
     margin-right: 10px;
 }
+
+
+
 
 .customer-name-bar a{
     color:#c4dbe7;
@@ -299,7 +334,6 @@ select:-webkit-autofill:focus {
 .customer-name-bar a:hover{
     color:white;
 }
-
 
 
 .customer-info{
@@ -333,7 +367,7 @@ select:-webkit-autofill:focus {
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px 10px 10px 10px;
-    border-bottom: 1px solid #bbbbbb;
+    border-bottom: 1px dashed #bbbbbb;
 }
 
 .customer-row{
@@ -370,7 +404,6 @@ select:-webkit-autofill:focus {
     color:#091527;
     font-size: 16px;
     font-weight: bold;
-    border-top: 1px solid #f5f5f5;
 }
 
 .account-card{
@@ -464,6 +497,8 @@ button:focus {
     width:812;
     min-height: 100vh;
     border-right: 1px solid #c4dbe7;
+    background-image: linear-gradient(#c4dbe7,white 40%);
+
 }
 
 
@@ -488,7 +523,6 @@ button:focus {
 
 
 .transactions-counter{
-    border-top: 1px solid white;
     padding: 15px;
 }
 
